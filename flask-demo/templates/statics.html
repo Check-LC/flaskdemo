@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>static Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></link>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <h1>Hello from Flask!</h1>
+    <p>static test</p>
+<!-- 这里解释一下代码中各参数的含义：
+     - `src`：用于指定图片的来源地址。在这个例子里，借助 Flask 的 `url_for` 函数，动态生成静态文件的 URL。`static` 表示静态文件目录，`filename='images/flask.png'` 表示静态文件目录下 `images` 文件夹中的 `flask.png` 图片。
+     - `alt`：当图片无法正常显示时，会显示这个属性指定的替代文本，这里设置为 “Flask Logo”，方便用户了解图片内容。 -->
+    <img src = "{{ url_for('static', filename='images/flask.png') }}" alt="Flask Logo">
+    <script>
+        showAlertDialog();
+        showConfirmDialog();
+        showPromptDialog();
+    </script>
+</html>

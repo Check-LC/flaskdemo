@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>control Page</title>
+  </head>
+
+  <body>
+    <!-- 原代码中 "{{username}}" 是字符串形式，会导致判断逻辑出错，应去掉双引号和花括号，直接使用变量 username -->
+    <!-- 同时，admin 若为字符串，也需要加引号 -->
+    {% if username == "admin" %}
+    <h1>Hello from Flask!</h1>
+    <p>contoller test</p>
+    <div>user admin control</div>
+
+    {% else %}
+    <h1>Hello from Flask!</h1>
+    <p>user geust contoller test</p>
+    {% endif %}
+  </body>
+</html>
