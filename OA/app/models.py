@@ -2,4 +2,4 @@
 from app.extensions import db
 
 class UserModel(db.Model):
-    pass
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
