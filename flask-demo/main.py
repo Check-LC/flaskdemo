@@ -2,6 +2,7 @@ from flask import Flask
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 import MySQLdb
+from flask_migrate import  Migrate # 允许你在不丢失数据的情况下升级数据库结构
 
 
 site = Flask(__name__)
@@ -17,6 +18,15 @@ config={ #此处应该需要配置文件
 site.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqldb://{config["USERNAME"]}:{config["PASSWORD"]}@{config["HOST"]}:{config["PORT"]}/{config["DATABASE"]}'
 
 db = SQLAlchemy(site)
+migrate = Migrate(site, db) # 初始化 flask-migrate。分别传入 Flask 应用实例、数据库实例
+'''
+migrate 映射三步
+1. flask db init
+2. flask db migrate 
+3. flask db upgrade
+'''
+
+
 
 # 此处在映射中相当于在设计数据库的表
 class User(db.Model):
@@ -39,9 +49,9 @@ class Article(db.Model):
     author = db.relationship('User', backref='articles')   # 不存在于数据库，仅在 ORM 中有效。还有反向引用
     # backref 会自动给User模型添加一个 titles 的属性
 
-
-with site.app_context():
-    db.create_all()
+# 不能追加更新表结构
+# with site.app_context():
+    # db.create_all() 
 
 # article1 = Article(title='1', content='content of article 1')
 # 下方展示关系的逻辑
