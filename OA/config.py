@@ -1,4 +1,4 @@
-# config.py
+# config.py 目前主要是数据库的配置连接
 import os
 from configparser import ConfigParser
 
@@ -35,4 +35,4 @@ class Config:
     # 第一个参数 'app' 表示配置文件中的 section 名称，即配置项所属的分组。
     # 第二个参数 'DEBUG' 表示要获取的配置项的名称。
     # 第三个参数 fallback=False 是一个可选参数，当指定的 section 和 option 不存在时，会返回该默认布尔值
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    # SQLALCHEMY_TRACK_MODIFICATIONS = False
