@@ -19,7 +19,10 @@ git remote set-url --add origin  repourl2
 3. 结构介绍
 
 4. 时间线记录，算是 commit 的补充和学习总结
+
    1. 20250514：初学并练习到静态文件加载
    2. 20250517：新建测试数据库、指定 git 仓库
       1. 数据库在 7e 云主机；容器名 mariadb; 连接 host mariadb.chaoslong.cn ; 端口 3306
       2. remote repo: origin = gitee(push\fetch) + github(push)
+
+5. 卒于没有前端代码！！！！只构建了简单的结构
